@@ -11,13 +11,10 @@ name: Trigger Spell Check Workflow
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [spell-check-workflow]
-
 
 jobs:
   trigger:
-    name: Trigger Spell Check
+    name: Trigger Spell Check in CSM-DOCS
     runs-on: ubuntu-latest
 
     strategy:
