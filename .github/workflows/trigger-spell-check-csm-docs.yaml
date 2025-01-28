@@ -31,5 +31,6 @@ jobs:
           # For token information, see: https://github.com/peter-evans/repository-dispatch/tree/main?tab=readme-ov-file#token
           token: ${{ secrets.CSMBOT_PAT }}
           repository: ${{ matrix.repo }}
+          branch: spell-test-autofix
           event-type: spell-check-workflow
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
