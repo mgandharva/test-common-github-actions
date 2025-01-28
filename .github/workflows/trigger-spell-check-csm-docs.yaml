@@ -7,7 +7,7 @@
 #  http://www.apache.org/licenses/LICENSE-2.0
 
 # Trigger workflow for go version update on CSM projects
-name: Trigger Spell Check and Autofix in CSM-Docs
+name: Trigger Spell Check and Autofix Workflow in CSM-Docs
 
 on:
   workflow_dispatch:
