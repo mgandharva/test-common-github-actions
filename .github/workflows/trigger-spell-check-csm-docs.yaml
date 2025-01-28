@@ -7,14 +7,14 @@
 #  http://www.apache.org/licenses/LICENSE-2.0
 
 # Trigger workflow for go version update on CSM projects
-name: Trigger Spell Check Workflow
+name: Trigger Spell Check and Autofix in CSM-Docs
 
 on:
   workflow_dispatch:
 
 jobs:
   trigger:
-    name: Trigger Spell Check in CSM-DOCS
+    name: Trigger Spell Check and Autofix Job
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,11 +25,11 @@ jobs:
           ]
 
     steps:
-      - name: Trigger Spell Check in CSM-DOCS
+      - name: Dispatch Spell Check Event to CSM-DOCS Repository
         uses: peter-evans/repository-dispatch@v3
         with:
           # For token information, see: https://github.com/peter-evans/repository-dispatch/tree/main?tab=readme-ov-file#token
           token: ${{ secrets.CSMBOT_PAT }}
           repository: ${{ matrix.repo }}
-          event-type: spell-check-workflow
-          client-payload: '{"ref": "refs/heads/spell-test-autofix", "sha": "${{ github.sha }}"}'
+          event-type: trigger-spell-check-autofix
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
